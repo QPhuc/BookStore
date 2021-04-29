@@ -1,0 +1,34 @@
+<h1>Books</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Book</a>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Books Name</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th style="width: 10%">Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books;let i=index">
+            <td>{{i + 1}}</td>
+            <td>{{book.BookName}}</td>
+            <td>{{book.Author}}</td>
+            <td>{{book.Price}}</td>
+            <td>{{book.Category.CategoryName}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{book.Id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteBook(book.Id)" class="btn btn-sm btn-danger btn-delete-user" >
+                        Delete
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!books">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

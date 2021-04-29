@@ -1,0 +1,31 @@
+<h1>Categories</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Category</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>STT</th> 
+            <th>Category Name</th>
+
+            <th style="width: 10%">Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories;let i=index">
+            <td>{{i + 1}}</td>
+            <td>{{category.CategoryName}}</td>
+
+
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{category.Id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteCategory(category.Id)" class="btn btn-sm btn-danger btn-delete-user">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!categories">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

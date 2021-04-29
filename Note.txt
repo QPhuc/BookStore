@@ -1,0 +1,13 @@
+https://localhost:44359/odata/Categories?Name=a&BookId=1
+
+https://localhost:44359/odata/categories/DeleteCategory?Id=2
+
+ADD Models:Scaffold-DbContext "Server=.\SQL;Database=bookStoreDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entity
+Update Models:Scaffold-DbContext "Server=.\SQL;Database=bookStoreDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -Context bookStoreDBContext -Force -OutputDir Entity
+
+Create Mirgation:dotnet ef migrations add InitialCreate
+
+xóa code trong protected override void Up(MigrationBuilder migrationBuilder) của file đầu tiên Migration
+
+dotnet ef migrations add addViewYearOld --project BookStore
+dotnet ef database update --project BookStore

@@ -1,0 +1,144 @@
+<div class="card col-md-6 offset-md-3 mt-5">
+  <h4 class="card-header">Register</h4>
+  <!-- Registeration Form -->
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- First Name -->
+        <div class="input-group col-lg-6 mb-4 form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white px-4 border-md border-right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              </svg>
+            </span>
+          </div>
+          <input type="text" formControlName="fName" class="form-control bg-white border-left-0 border-md" [ngModel]="user"
+            placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && f.fName.errors }" />
+          <div *ngIf="submitted && f.fName.errors" class="invalid-feedback">
+            <div *ngIf="f.fName.errors.required">First Name is required</div>
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="input-group col-lg-6 mb-4 form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white px-4 border-md border-right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              </svg>
+            </span>
+          </div>
+          <input type="text" formControlName="lName" class="form-control bg-white border-left-0 border-md" [ngModel]="user"
+            placeholder="Last Name" [ngClass]="{ 'is-invalid': submitted && f.lName.errors }" />
+          <div *ngIf="submitted && f.lName.errors" class="invalid-feedback">
+            <div *ngIf="f.lName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="input-group col-lg-12 mb-4 form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white px-4 border-md border-right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
+                viewBox="0 0 16 16">
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+              </svg>
+            </span>
+          </div>
+          <input type="text" formControlName="email" class="form-control bg-white border-left-0 border-md" [ngModel]="user"
+            placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+          </div>
+        </div>
+
+        <!-- Birth Day -->
+        <div class="input-group col-lg-12 mb-4 form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white px-4 border-md border-right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-calendar-date" viewBox="0 0 16 16">
+                <path
+                  d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+              </svg>
+            </span>
+          </div>
+          <input type="date" formControlName="birthday" class="form-control bg-white border-left-0 border-md" [ngModel]="user"
+            placeholder="Birthday" [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }" />
+          <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
+            <div *ngIf="f.birthday.errors.required">Birthday is required</div>
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="input-group col-lg-12 mb-4 form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white px-4 border-md border-right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+              </svg>
+            </span>
+          </div>
+          <input type="text" formControlName="phone" class="form-control bg-white border-md border-left-0 pl-3" [ngModel]="user"
+            placeholder="Phone Number" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Phone is number and not null</div>
+          </div>
+        </div>
+
+        <!-- UserName -->
+        <div class="input-group col-lg-12 mb-4 form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white px-4 border-md border-right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+              </svg>
+            </span>
+          </div>
+          <input type="text" formControlName="username" class="form-control bg-white border-left-0 border-md" [ngModel]="user"
+            placeholder="UserName" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="input-group col-lg-12 mb-4 form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white px-4 border-md border-right-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" />
+              </svg>
+            </span>
+          </div>
+          <input type="password" formControlName="password" class="form-control bg-white border-left-0 border-md" [ngModel]="user"
+            placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password has length > 3</div>
+          </div>
+        </div>
+      </div>
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Register
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<h1 *ngIf="isAddMode">Add Book</h1>
+<h1 *ngIf="!isAddMode">Edit Book</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="BookName">Book Name</label>
+            <input type="text" formControlName="BookName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.BookName.errors }" />
+            <div *ngIf="submitted && f.BookName.errors" class="invalid-feedback">
+                <div *ngIf="f.BookName.errors.required">Book Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="Author">Author</label>
+            <input type="text" formControlName="Author" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Author.errors }" />
+            <div *ngIf="submitted && f.Author.errors" class="invalid-feedback">
+                <div *ngIf="f.Author.errors.required">Author is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="Price">Price</label>
+            <input type="text" formControlName="Price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Price.errors }" />
+            <div *ngIf="submitted && f.Price.errors" class="invalid-feedback">
+                <div *ngIf="f.Price.errors.required">Price is number and not null</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="Username">Category</label>
+            <select class="form-control" formControlName="CategoryId">
+                <option  *ngFor="let cate of category" [ngValue]="cate.Id">
+                    {{cate.CategoryName}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <a routerLink="/books" class="btn btn-link">Cancel</a>
+    </div>
+</form>
