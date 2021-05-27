@@ -34,7 +34,7 @@ alter table [User] Add test int;
 
 select * from [User];
 
-CREATE VIEW Year_old AS
+CREATE VIEW Year_old  AS
 SELECT *,(YEAR(GETDATE())-YEAR(Birthday)) as Year_old
 FROM [User];
 
@@ -43,24 +43,10 @@ select * from Year_old
 select * from [User] u
 join Year_old o on u.ID = o.ID
 
-create procedure Yearold_Mature
-as
-begin
-	select FName,LName,Sum(Year_old) as Mature from Year_old
-group by LName,FName Having Sum(Year_old)>16
-end;
-
-EXECUTE Yearold_Mature ;
 
 
-CREATE PROCEDURE storedBook
-    @IdBook   INT
-AS
-BEGIN
-    SELECT * FROM Book WHERE Id=@IdBook 
-END
 
-EXEC storedBook @IdBook=1;
+
 
 insert into Category values('Fairy tale');
 insert into Category values('Ghos[dbo].[Year_old]t story');

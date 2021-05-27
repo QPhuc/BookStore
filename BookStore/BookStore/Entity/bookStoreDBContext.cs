@@ -25,7 +25,7 @@ namespace BookStore.Entity
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQL;Database=bookStoreDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.\\TQUANGPHUC;Database=bookStoreDB;Trusted_Connection=True;");
             }
         }
 

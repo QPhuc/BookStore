@@ -9,15 +9,14 @@ namespace BookStore.Models.Users
 {
   public class RegisterModel
   {
-
     [Required]
-    public string Fname { get; set; }
+    public string FirstName { get; set; }
     [Required]
-    public string Lname { get; set; }
+    public string LastName { get; set; }
     [Required]
     public DateTime? Birthday { get; set; }
     [Required]
-    public string Phone { get; set; }
+    public int? Phone { get; set; }
     [Required]
     public string Email { get; set; }
     [Required]
